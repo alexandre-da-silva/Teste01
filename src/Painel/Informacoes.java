@@ -69,8 +69,9 @@ public class Informacoes {
             menu();
             break;
         }
-        else if (pessoa1.senha.equals("nao")){
+        else if (respost.equals("nao")){
             System.out.print("digite novamente\n->");
+            
             pessoa1.senha = ler.nextLine();
         }
         else{
