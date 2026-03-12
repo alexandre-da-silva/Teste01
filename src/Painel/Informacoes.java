@@ -26,14 +26,20 @@ public class Informacoes {
             System.out.println("nome do ussuario esta incorreto");
         }
         else{
-            System.out.print("ussuario nao encontrado\n deseja fazer o cadastro? digite(sim) ou (nao) para voltar para menu->");
+            System.out.print("ussuario nao encontrado digite (1) para tentar novamente ou (2) para cadastrar ou (3) para voltar ao menu\n->");
             String respost = ler.nextLine();
-            if(respost.equals("sim")){
+            if(respost.equals("1")){
+            }
+            else if(respost.equals("2")){
                 cadastro();
                 break;
             }
-            else if(respost.equals("nao")){
-
+            else if(respost.equals("3")){
+            menu();
+            break;
+            }
+            else{
+                System.out.println("comando invalido");
             }
             
         }
@@ -86,6 +92,28 @@ public class Informacoes {
     }
    
 }
-        
- 
-}}
+}public static void menu(){
+        while(true){
+        System.out.print("1: cadastrar.\n2:logar\n3:sair\n->");
+        String resposta = Informacoes.ler.nextLine();
+        if(resposta.equals("1")){
+            //cadastrar
+            Informacoes.cadastro();
+            break;
+        }
+        if(resposta.equals("2")){
+            //logar
+            Informacoes.logar();
+            break;
+        }
+        if(resposta.equals("3")){
+            //sair
+            System.out.println("saindo...");
+            break;
+        }
+        else if(!resposta.equals("1") && !resposta.equals("2") && !resposta.equals("3")){
+            //se ussuario digitar algo diferte de sair,cadastrar ou logar
+            System.out.println("digite novamente 1 para cadastrar 2 para logar e 3 sair");
+        }
+    }}
+}
