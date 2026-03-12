@@ -17,6 +17,7 @@ public class Informacoes {
         String veri2  = ler.nextLine();
         if(veri.equals(pessoa1.nome)&&pessoa1.senha.equals(veri2)){
             System.out.print("seja bem vindo novamente");
+            System.exit(0);
             break;
         }
         else if (veri.equals(pessoa1.nome) && !veri2.equals(pessoa1.senha)){
@@ -48,7 +49,7 @@ public class Informacoes {
 }
     //metodo cadastro
      public static void cadastro(){
-        System.out.print("seja muito bem vindo\nantes digite seu nome de ussuario\nnome do usuario->");
+        System.out.print("seja muito bem vindo\ndigite o que voce deseja ussar de ussuario\nnome do usuario->");
         pessoa1.nome = ler.nextLine();
         while(true){
         System.out.print("voce tem certeza desse nome? "+pessoa1.nome+"\n1=sim\n2=nao\n->");
@@ -58,7 +59,27 @@ public class Informacoes {
         if(resposta.equals("1")){
             System.out.println("nome salvo com sucesso");
             System.out.print(pessoa1.nome);
+            System.out.print(" crie uma senha\n->");
+        pessoa1.senha= ler.nextLine();
+        while(true){
+        System.out.print("voce tem certeza dessa senha "+pessoa1.senha+"? sim ou nao\n->");
+        String respost = ler.nextLine();
+        if (resposta.equals("1")){
+            System.out.println("senha salva!");
+            menu();
             break;
+        }
+        else if (pessoa1.senha.equals("nao")){
+            System.out.print("digite novamente\n->");
+            pessoa1.senha = ler.nextLine();
+        }
+        else{
+            System.out.println("comando nao indentificado (sim/nao)\ntente novamente->");
+
+        }
+        
+
+    }
             
         }
         else if(resposta.equals("2")){
@@ -70,29 +91,10 @@ public class Informacoes {
             System.out.print("comando nao indentificado 1 ou 2");
 
         }
-        System.out.print("crie uma senha ");
-        pessoa1.senha= ler.nextLine();
-        while(true){
-        System.out.print("voce tem certeza dessa senha "+pessoa1.senha+"? sim ou nao\n->");
-        String respost = ler.nextLine();
-        if (resposta.equals("1")){
-            System.out.print("senha salva!");
-            break;
-        }
-        else if (pessoa1.senha.equals("nao")){
-            System.out.print("digite novamente\n->");
-            pessoa1.senha = ler.nextLine();
-        }
-        else{
-            System.out.println("comando nao indentificado (sim/nao\ntente novamente)");
-
-        }
-        
-
-    }
    
 }
-}public static void menu(){
+} 
+public static void menu(){
         while(true){
         System.out.print("1: cadastrar.\n2:logar\n3:sair\n->");
         String resposta = Informacoes.ler.nextLine();
@@ -109,11 +111,15 @@ public class Informacoes {
         if(resposta.equals("3")){
             //sair
             System.out.println("saindo...");
+            System.exit(0);
             break;
         }
         else if(!resposta.equals("1") && !resposta.equals("2") && !resposta.equals("3")){
             //se ussuario digitar algo diferte de sair,cadastrar ou logar
-            System.out.println("digite novamente 1 para cadastrar 2 para logar e 3 sair");
+            System.out.println("comando invalido didite novamente 1 ou 2 ou 3");
         }
-    }}
+    }
+    ler.close();
+}
+
 }
